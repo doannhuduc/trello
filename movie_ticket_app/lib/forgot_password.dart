@@ -13,46 +13,54 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[900],
-        leading: Icon(Icons.arrow_back),
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back)),
         title: Text("Forgot Password"),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 40),
-          Center(
-              child: Text(
-            "Please enter your email or phone number",
-            style: TextStyle(fontSize: 18),
-          )),
-          SizedBox(height: 20),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                border: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
-                hintText: "Password",
-                hintStyle: TextStyle(color: Colors.black38),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          ElevatedButton(
-            onPressed: () {},
+      body: forgotPassword(),
+    );
+  }
+
+  Widget forgotPassword() {
+    return Column(
+      children: [
+        SizedBox(height: 40),
+        Center(
             child: Text(
-              "CONTINUE",
-              style: TextStyle(fontSize: 18),
+          "Please enter your email or phone number",
+          style: TextStyle(fontSize: 18),
+        )),
+        SizedBox(height: 20),
+        Padding(
+          padding: EdgeInsets.all(16.0),
+          child: TextField(
+            decoration: InputDecoration(
+              border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)),
+              focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)),
+              hintText: "Password",
+              hintStyle: TextStyle(color: Colors.black38),
             ),
-            style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.grey),
-                fixedSize: MaterialStatePropertyAll(Size(380, 40))),
           ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text(
+            "CONTINUE",
+            style: TextStyle(fontSize: 18),
+          ),
+          style: ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(Colors.grey),
+              fixedSize: MaterialStatePropertyAll(Size(380, 40))),
+        ),
+      ],
     );
   }
 }

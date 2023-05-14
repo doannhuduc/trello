@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_ticket_app/create_account.dart';
 import 'package:movie_ticket_app/forgot_password.dart';
 
 class LogIn extends StatefulWidget {
@@ -25,7 +26,7 @@ class _LogInState extends State<LogIn> {
             imageHomepage(),
             textField_emailOrPhone(),
             textFieldPassword(),
-            registration()
+            registration(context)
           ],
         ),
       ),
@@ -34,13 +35,11 @@ class _LogInState extends State<LogIn> {
 }
 
 Widget imageHomepage() {
-  return Container(
+  return Image.asset(
+    "assets/image/image_homepage.jpg",
     height: 250,
     width: 420,
-    child: Image.asset(
-      "assets/image/image_homepage.jpg",
-      fit: BoxFit.cover,
-    ),
+    fit: BoxFit.cover,
   );
 }
 
@@ -80,7 +79,7 @@ Widget textFieldPassword() {
   );
 }
 
-Widget registration() {
+Widget registration(context) {
   return Column(
     children: [
       SizedBox(height: 40),
@@ -114,6 +113,13 @@ Widget registration() {
       ),
       SizedBox(height: 20),
       InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return CreateAccount();
+            },
+          ));
+        },
         child: Container(
           height: 40,
           width: 320,
