@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_ticket_app/forgot_password.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -30,26 +31,25 @@ class _LogInState extends State<LogIn> {
       ),
     );
   }
+}
 
-  Widget imageHomepage() {
-    return Container(
-      height: 250,
-      width: 420,
-      child: Image.asset(
-        "assets/image/image_homepage.jpg",
-        fit: BoxFit.cover,
-      ),
-    );
-  }
+Widget imageHomepage() {
+  return Container(
+    height: 250,
+    width: 420,
+    child: Image.asset(
+      "assets/image/image_homepage.jpg",
+      fit: BoxFit.cover,
+    ),
+  );
 }
 
 Widget textField_emailOrPhone() {
   return Padding(
     padding: EdgeInsets.all(16.0),
     child: TextField(
-      
       decoration: InputDecoration(
-        // errorText: ,
+          // errorText: ,
           border:
               UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
           focusedBorder:
@@ -96,6 +96,13 @@ Widget registration() {
       ),
       SizedBox(height: 20),
       InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return ForgotPassword();
+            },
+          ));
+        },
         child: Text("Forgot Password",
             style: TextStyle(
                 fontStyle: FontStyle.italic, color: Colors.blue, fontSize: 16)),
