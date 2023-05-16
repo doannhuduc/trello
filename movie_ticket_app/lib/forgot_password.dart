@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_ticket_app/const/app_color.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -12,7 +13,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[900],
+        backgroundColor: AppColor.primary500,
         leading: InkWell(
             onTap: () {
               Navigator.pop(context);

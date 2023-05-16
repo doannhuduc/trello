@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_ticket_app/const/app_color.dart';
+import 'package:movie_ticket_app/const/app_style.dart';
 import 'package:movie_ticket_app/create_account.dart';
 import 'package:movie_ticket_app/forgot_password.dart';
 
@@ -16,9 +18,17 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-        leading: Icon(Icons.arrow_back),
-        title: Text("Log In"),
+        backgroundColor: AppColor.primary500,
+        leading: InkWell(
+          child: Icon(Icons.arrow_back),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          "Log In",
+          style: AppStyle.t14R.apply(color: Colors.black),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -36,7 +46,7 @@ class _LogInState extends State<LogIn> {
 
 Widget imageHomepage() {
   return Image.asset(
-    "assets/image/image_homepage.jpg",
+    "assets/image/image_login.jpg",
     height: 250,
     width: 420,
     fit: BoxFit.cover,

@@ -1,9 +1,5 @@
 import 'dart:math';
 
-// Bài 1 : Count the Digits That Divide a Number
-// Cho một số nguyên num, trả về số chữ số trong num chia hết cho num.
-// Một số nguyên val chia hết cho nums nếu nums % val == 0.
-
 void main(List<String> args) {
   int num = 123658;
   print(countDigits(num));
@@ -14,7 +10,25 @@ void main(List<String> args) {
 
   String a = "nice to meet you";
   print(lengthOflastWord(a));
+
+  String jewels = "ab";
+  String stones = "abbbcccccc";
+  print(countJewelsInStones(jewels, stones));
+
+  List<List<String>> items = [
+    ["phone", "blue", "pixel"],
+    ["computer", "silver", "lenovo"],
+    ["phone", "silver", "iphone"]
+  ];
+
+  String ruleKey = "type";
+  String ruleValue = "computer";
+  print(countMatches(items, ruleKey, ruleValue));
 }
+
+// Bài 1 : Count the Digits That Divide a Number
+// Cho một số nguyên num, trả về số chữ số trong num chia hết cho num.
+// Một số nguyên val chia hết cho nums nếu nums % val == 0.
 
 int countDigits(int num) {
 // tạo biến "count" có kiểu dữ liệu int để đếm số chữ số trong "num" chia hết cho "num"
@@ -76,11 +90,59 @@ int lengthOflastWord(String s) {
 
 // tạo một danh sách "listNewS" để chứa các phần tử trong chuỗi newS được tách ra bằng khoảng trắng
 
-  List<String> listNewS = newS.split(" ");
+  List<String> listNewS = newS.split("");
 
 // Trả về độ dài của phần tử cuối cùng trong danh sách "listNewS"
 
-  int lengthLastWord = listNewS[listNewS.length - 1].length;
+  int lengthLastWord = (listNewS[listNewS.length - 1]).length;
 
   return lengthLastWord;
+}
+
+// Bài 4 : Jewels and Stones
+// Bạn được cung cấp các chuỗi jewels đại diện cho các loại đá là đồ trang sức và stones đại diện cho những viên đá bạn có.
+// Mỗi nhân vật trong stones là một loại đá mà bạn có. Bạn muốn biết bao nhiêu viên đá bạn có cũng là đồ trang sức.
+// Các chữ cái phân biệt chữ hoa chữ thường, do đó "a"được coi là một loại đá khác với “A”
+
+int countJewelsInStones(String jewels, String stones) {
+// tạo biến count để đếm số lượng viên đá cũng là đồ trang sức
+  int count = 0;
+
+// thực hiện vòng lặp ở "stone" và đem từng phần tử ở "stone" đi so sánh với từng phần tử ở jewels.
+// Nếu bằng nhau thì cộng thêm 1.
+  for (int i = 0; i < jewels.length; ++i) {
+    for (int j = 0; j < stones.length; ++j) {
+      if (jewels[i] == stones[j]) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+// Bài 5 : Count Items Matching a Rule
+
+// Bạn được cho một mảng items, trong đó mỗi phần tử items[i] = [type_i, color_i, name_i] mô tả loại,
+// màu sắc và tên của món hàng thứ i.
+// Bạn cũng được cho một quy tắc được biểu diễn bởi hai chuỗi ruleKey và ruleValue.
+// Phần tử thứ i được cho là phù hợp với quy tắc nếu một trong các điều sau đây là đúng:
+// ruleKey = "type" và ruleValue = type_i.
+// ruleKey = "color" và ruleValue = color_i.
+// ruleKey = "name" và ruleValue = name_i.
+// Trả về số lượng các phần tử phù hợp với quy tắc được cho.
+
+int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+  int key = 0;
+  int count = 0;
+
+  if (ruleKey == "color") {
+    key = 1;
+  } else if (ruleKey == "name") {
+    key = 2;
+  }
+
+  for (int i = 0; i < items.length; i++) {
+    if (items[i][key] == ruleValue) count++;
+  }
+  return count;
 }
