@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_ticket_app/const/app_color.dart';
+import 'package:movie_ticket_app/const/app_style.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -18,7 +19,10 @@ class _CreateAccountState extends State<CreateAccount> {
               Navigator.pop(context);
             },
             child: Icon(Icons.arrow_back)),
-        title: Text("Register"),
+        title: Text(
+          "Register",
+          style: AppStyle.textAppar
+        ),
         backgroundColor: AppColor.primary500,
       ),
       body: SingleChildScrollView(

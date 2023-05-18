@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_ticket_app/const/app_color.dart';
+import 'package:movie_ticket_app/const/app_style.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -19,7 +20,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               Navigator.pop(context);
             },
             child: Icon(Icons.arrow_back)),
-        title: Text("Forgot Password"),
+        title: Text("Forgot Password", style: AppStyle.textAppar),
       ),
       body: forgotPassword(),
     );

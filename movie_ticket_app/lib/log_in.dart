@@ -25,10 +25,7 @@ class _LogInState extends State<LogIn> {
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          "Log In",
-          style: AppStyle.t14R.apply(color: Colors.black),
-        ),
+        title: Text("Log In", style: AppStyle.textAppar),
       ),
       body: SingleChildScrollView(
         child: Column(
